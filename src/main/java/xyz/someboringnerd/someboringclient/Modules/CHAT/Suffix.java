@@ -2,6 +2,7 @@ package xyz.someboringnerd.someboringclient.Modules.CHAT;
 
 import net.minecraftforge.client.event.ClientChatEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import xyz.someboringnerd.someboringclient.Modules.CATEGORY;
 import xyz.someboringnerd.someboringclient.Modules.Module;
 import xyz.someboringnerd.someboringclient.Util.ChatUtil;
 
@@ -11,9 +12,9 @@ import java.util.Map;
 public class Suffix extends Module
 {
 
-    public Suffix()
+    public Suffix(String name, CATEGORY cat)
     {
-        name = "Suffix";
+        super(name, cat);
         settings.put("Mode", "FULL");
     }
 

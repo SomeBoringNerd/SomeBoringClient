@@ -28,7 +28,6 @@ public class Someboringclient {
 
     public static ModuleManager manager;
 
-    /** This is the instance of your mod as created by Forge. It will never be null. */
     @Mod.Instance(MOD_ID)
     public static Someboringclient INSTANCE;
 

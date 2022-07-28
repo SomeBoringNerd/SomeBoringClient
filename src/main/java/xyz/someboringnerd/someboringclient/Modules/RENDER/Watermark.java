@@ -5,6 +5,7 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import xyz.someboringnerd.someboringclient.Modules.CATEGORY;
 import xyz.someboringnerd.someboringclient.Modules.Module;
 import xyz.someboringnerd.someboringclient.Util.ChatUtil;
 
@@ -15,9 +16,9 @@ import java.util.Objects;
 
 public class Watermark extends Module
 {
-    public Watermark()
+    public Watermark(String name, CATEGORY cat)
     {
-
+        super(name, cat);
         settings.put("Mode", "Full");
 
         //Toggle();

@@ -3,15 +3,16 @@ package xyz.someboringnerd.someboringclient.Modules.RENDER;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import xyz.someboringnerd.someboringclient.Modules.CATEGORY;
 import xyz.someboringnerd.someboringclient.Modules.Module;
 import xyz.someboringnerd.someboringclient.Someboringclient;
 
 public class ActiveModules extends Module
 {
 
-    public ActiveModules()
+    public ActiveModules(String name, CATEGORY cat)
     {
-        name = "ModuleList";
+        super(name, cat);
     }
 
     @SubscribeEvent
@@ -23,7 +24,7 @@ public class ActiveModules extends Module
             for(Module mod : Someboringclient.manager.modules)
             {
                 if(mod.isEnabled()) {
-                    Minecraft.getMinecraft().fontRenderer.drawStringWithShadow("> " + mod.name, 2, 15 + Y, 0xFFFFFF);
+                    Minecraft.getMinecraft().fontRenderer.drawStringWithShadow("> " + mod.cat + "." + mod.name, 2, 15 + Y, 0xFFFFFF);
                     Y += 10;
                 }
             }

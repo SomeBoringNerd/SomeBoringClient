@@ -13,8 +13,11 @@ public class ModuleManager
 
     public ModuleManager()
     {
-        modules.add(new ActiveModules());
-        modules.add(new Suffix());
-        modules.add(new Watermark());
+        // chat
+        modules.add(new Suffix("Suffix", CATEGORY.CHAT));
+
+        // render
+        modules.add(new ActiveModules("List", CATEGORY.RENDER));
+        modules.add(new Watermark("Watermark", CATEGORY.RENDER));
     }
 }

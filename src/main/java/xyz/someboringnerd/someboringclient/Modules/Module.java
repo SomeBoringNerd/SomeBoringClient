@@ -13,8 +13,13 @@ public class Module
     public String name = "DEFAULT_NAME";
     boolean enabled = false;
 
-    public Module()
+    public CATEGORY cat;
+
+    public Module(String name, CATEGORY cat)
     {
+        this.name = name;
+        this.cat = cat;
+
         MinecraftForge.EVENT_BUS.register(this);
     }
 
