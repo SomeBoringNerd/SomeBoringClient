@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "sbh",
+  "version": "DEV-1.0.0",
+  "name": "someboringhax",
+  "description": "Client for minecraft 1.19",
+  "authors": [
+    "SomeBoringNerd"
+  ],
+  "contact": {
+    "website": "https://someboringnerd.xyz"
+  },
+  "license": "MIT",
+  "icon": "assets/sbh/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "xyz.someboringnerd.SbhClient"
+    ],
+    "main": [
+      "xyz.someboringnerd.client"
+    ]
+  },
+  "mixins": [
+    "sbh.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.8",
+    "fabric": "*",
+    "minecraft": "1.19"
+  }
+}
