@@ -10,8 +10,11 @@ import xyz.someboringnerd.someboringclient.commands.Debug.HelloWorld;
 import xyz.someboringnerd.someboringclient.commands.Util.Set;
 import xyz.someboringnerd.someboringclient.commands.Util.Toggle;
 import xyz.someboringnerd.someboringclient.commands.exploits.CoordFinder;
+import xyz.someboringnerd.someboringclient.commands.infos.EntityList;
+import xyz.someboringnerd.someboringclient.commands.infos.mod;
 import xyz.someboringnerd.someboringclient.commands.infos.player;
 
+import java.util.Locale;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class CommandManager
@@ -27,6 +30,8 @@ public class CommandManager
         commands.add(new player());
         commands.add(new HelloWorld());
         commands.add(new CoordFinder());
+        commands.add(new mod());
+        commands.add(new EntityList());
     }
 
     @SubscribeEvent
@@ -38,7 +43,7 @@ public class CommandManager
         boolean found = false;
         for(Command cmd : commands)
         {
-            if(event.getMessage().startsWith("*" + cmd.name))
+            if(event.getMessage().toLowerCase(Locale.ROOT).startsWith("*" + cmd.name.toLowerCase(Locale.ROOT)))
             {
                 event.setMessage(event.getMessage().replace("*" + cmd.name, "").trim());
                 String[] args = event.getMessage().split(" ");

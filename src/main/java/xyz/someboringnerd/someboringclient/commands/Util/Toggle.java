@@ -25,6 +25,7 @@ public class Toggle extends Command
             for (Module module : Someboringclient.manager.modules) {
                 if (module.name.toLowerCase(Locale.ROOT).equals(args[0].toLowerCase(Locale.ROOT))) {
                     module.Toggle();
+                    module.Save();
                     ChatUtil.sendMessageToPlayer("Module " + args[0] + " was toggled " + (module.isEnabled() ? "§2ON§r" : "§4OFF§r"));
                 }
             }

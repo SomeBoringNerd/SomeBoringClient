@@ -12,8 +12,6 @@ type *help in chat to get a list of commands. The client dont have any kind of G
 
 # TODO :
 
->Save system
-
 >Keybind system
 
 >pvp modules

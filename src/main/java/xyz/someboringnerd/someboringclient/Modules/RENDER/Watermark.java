@@ -23,6 +23,8 @@ public class Watermark extends Module
 
         //Toggle();
         name = "Watermark";
+
+        Create();
     }
 
     public String getWatermark()
@@ -53,11 +55,10 @@ public class Watermark extends Module
     }
 
     @SubscribeEvent
-    public void OnRender(RenderGameOverlayEvent.Post e)
+    public void OnRender(RenderGameOverlayEvent.Text e)
     {
-        if(isEnabled())
-        {
-            Minecraft.getMinecraft().fontRenderer.drawStringWithShadow(getWatermark(), 1, 1, 0xFFFFFF);
-        }
+        if(!isEnabled()) return;
+
+        Minecraft.getMinecraft().fontRenderer.drawStringWithShadow(getWatermark(), 1, 1, 0xFFFFFF);
     }
 }

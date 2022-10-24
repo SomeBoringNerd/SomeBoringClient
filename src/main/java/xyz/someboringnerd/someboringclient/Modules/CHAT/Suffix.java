@@ -16,6 +16,8 @@ public class Suffix extends Module
     {
         super(name, cat);
         settings.put("Mode", "FULL");
+
+        Create();
     }
 
     @SubscribeEvent
@@ -23,16 +25,19 @@ public class Suffix extends Module
     {
         if(!this.isEnabled()) return;
 
-        event.setMessage(event.getMessage() + getSuffix());
+        if((!event.getMessage().startsWith("/") && !event.getMessage().startsWith("*") && !event.getMessage().startsWith("!")))
+        {
+            event.setMessage(event.getMessage() + getSuffix());
+        }
     }
 
     String getSuffix()
     {
         switch (settings.get("Mode").toString().toLowerCase(Locale.ROOT)){
             case "full":
-                return " << ＳｏｍｅＢｏｒｉｎｇＣｌｉｅｎｔ ｖａ-１";
+                return " << ꜱᴏᴍᴇʙᴏʀɪɴɢᴄʟɪᴇɴᴛ ᴀʟᴘʜᴀ-1 ♥";
             case "name":
-                return " << ＳｏｍｅＢｏｒｉｎｇＣｌｉｅｎｔ ♥";
+                return " << ꜱᴏᴍᴇʙᴏʀɪɴɢᴄʟɪᴇɴᴛ - ♥";
             default:
                 ChatUtil.sendMessageToPlayer("Mode value was set to an invalid value and was reset to it's default value (FULL)");
                 for (Map.Entry<String, Object> stringObjectEntry : settings.entrySet()) {

@@ -33,6 +33,7 @@ public class Set extends Command
                         {
                             ChatUtil.sendMessageToPlayer("Found setting " + args[1], true);
                             entry.setValue(args[2]);
+                            mod.Save();
                             ChatUtil.sendMessageToPlayer("Set " + args[1] + " from module " + args[0] + " to " + args[2]);
                         }
                     }

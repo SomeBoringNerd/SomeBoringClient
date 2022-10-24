@@ -8,30 +8,26 @@ import xyz.someboringnerd.someboringclient.Modules.CATEGORY;
 import xyz.someboringnerd.someboringclient.Modules.Module;
 import xyz.someboringnerd.someboringclient.Someboringclient;
 
-public class ActiveModules extends Module
+public class Coordinates extends Module
 {
-
-    public ActiveModules(String name, CATEGORY cat)
-    {
+    public Coordinates(String name, CATEGORY cat) {
         super(name, cat);
 
         Create();
     }
 
+
     @SubscribeEvent
     public void OnRender(RenderGameOverlayEvent.Text e)
     {
-        if(isEnabled())
-        {
+        if(!isEnabled()) return ;
 
-            int Y = 0;
-            for(Module mod : Someboringclient.manager.modules)
-            {
-                if(mod.isEnabled()) {
-                    Minecraft.getMinecraft().fontRenderer.drawStringWithShadow("> " + mod.cat + "." + mod.name, 2, 15 + Y, 0xFFFFFF);
-                    Y += 10;
-                }
-            }
-        }
+        int X = Minecraft.getMinecraft().player.getPosition().getX();
+        int Y = Minecraft.getMinecraft().player.getPosition().getY();
+        int Z = Minecraft.getMinecraft().player.getPosition().getZ();
+
+        ScaledResolution sr = new ScaledResolution(Minecraft.getMinecraft());
+
+        Minecraft.getMinecraft().fontRenderer.drawStringWithShadow("> X : " + X + "| Y : " + Y + "| Z : " + Z + " <", 2, sr.getScaledHeight() - 30, 0xFFFFFF);
     }
 }
